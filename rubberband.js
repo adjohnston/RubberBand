@@ -1,7 +1,7 @@
 /**
 * RubberBand
 * A responsive web design tool
-* ver - 0.1.3
+* ver - 0.1.4
 * 15/08/2012
 * Adam Johnston
 * rubberband.adamjohnston.co.uk
@@ -56,13 +56,7 @@ var rubberband = (function (window, document) {
     },
 
     showAlways = function () {
-      var i, style = { height: '100%', margin: 0, background: "rgba(255, 255, 255, .8)" };
-
-      for (i in style) {
-        if (style.hasOwnProperty(i)) {
-          get('rb-tools').style[i] = style[i];
-        }
-      }
+      get('rb-tools').className += 'show';
     },
 
     addCSS = function () {
@@ -215,7 +209,7 @@ var rubberband = (function (window, document) {
         viewStyling = function () {
           var a = get('rb-frame');
 
-          a.style.width = parseInt(viewportSize, 10) + 16 + 'px';
+          a.style.width = parseInt(viewportSize, 10) + 'px';
           a.style.left = (((rbValue.docWidth - parseInt(viewportSize, 10)) / 2) / rbValue.docWidth) * 100 + '%';
         };
 
@@ -274,7 +268,7 @@ var rubberband = (function (window, document) {
 
       try {
         a = localStorage.getItem('rbViewport');
-      } catch (error) {}
+      } catch (errorA) {}
 
       if (storage('rbViewOn') === 'true') {
         viewToggle(true, a);
@@ -286,11 +280,14 @@ var rubberband = (function (window, document) {
         get('rb-calculator').style.visibility = 'hidden';
         get('rb-font-size-line-height').style.top = '-56px';
         get('rb-width-height').style.top = '-56px';
-        storage('rbViewOn', true);
-      }
 
-      if (get('rb-frame').contentDocument.body.clientHeight > window.innerHeight) {
-        get('rb-frame').style.width = get('rb-frame').style.width + 32 + 'px';
+        if (window.document.body.clientHeight > window.innerHeight) {
+          try {
+            get('rb-frame').style.width = get('rb-frame').style.width + 32 + 'px';
+          } catch (errorB) {}
+        }
+
+        storage('rbViewOn', true);
       }
 
       return null;
