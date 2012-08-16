@@ -1,8 +1,8 @@
 /**
 * RubberBand
 * A responsive web design tool
-* ver - 0.1.4
-* 15/08/2012
+* ver - 0.1.5
+* 16/08/2012
 * Adam Johnston
 * rubberband.adamjohnston.co.uk
 */
@@ -161,6 +161,16 @@ var rubberband = (function (window, document) {
       get('rb-' + element).style.display = 'none';
     },
 
+    scrollBarAdjust = function (viewportSize) {
+      var a = parseInt(viewportSize, 10);
+
+      if (window.document.body.clientHeight > window.innerHeight) {
+        a = a + 16;
+      }
+
+      return a;
+    },
+
     /**
      * Overwrites any default options set by the user.
      * @param   {object}  userOptions
@@ -209,13 +219,19 @@ var rubberband = (function (window, document) {
         viewStyling = function () {
           var a = get('rb-frame');
 
-          a.style.width = parseInt(viewportSize, 10) + 'px';
-          a.style.left = (((rbValue.docWidth - parseInt(viewportSize, 10)) / 2) / rbValue.docWidth) * 100 + '%';
+          (function (callback) {
+            a.hidden = true;
+            callback();
+          }(function () {
+            a.style.width = scrollBarAdjust(viewportSize) + 'px';
+            a.style.left = (((rbValue.docWidth - parseInt(viewportSize, 10)) / 2) / rbValue.docWidth) * 100 + '%';
+            a.hidden = false;
+          }));
         };
 
       if (showView) {
         if (!get('rb-frame')) {
-          document.body.insertAdjacentHTML('afterbegin', '<div id="rb-overlay"></div><iframe id="rb-frame" name="rb-frame" src="' + document.URL + '?id=rb-copy"></iframe>');
+          document.body.insertAdjacentHTML('afterbegin', '<div id="rb-overlay"></div><iframe id="rb-frame" name="rb-frame" src="' + document.URL + '?id=rb-copy" width="0" height="0"></iframe>');
         }
       }
 
@@ -238,6 +254,7 @@ var rubberband = (function (window, document) {
   window.onload = (function () { return [rbValues(), addCSS(), addHTML(), addValues(), addLines(), guideToggleCheck()]; }());
 
   window.onresize = function () { return [rbValues(), addValues(), addLines()]; };
+
 
   get('rb-guide-on').onclick = function () { guideToggle(true); };
 
@@ -272,6 +289,7 @@ var rubberband = (function (window, document) {
 
       if (storage('rbViewOn') === 'true') {
         viewToggle(true, a);
+
         storage('rbViewOn', false);
       }
 
@@ -280,12 +298,6 @@ var rubberband = (function (window, document) {
         get('rb-calculator').style.visibility = 'hidden';
         get('rb-font-size-line-height').style.top = '-56px';
         get('rb-width-height').style.top = '-56px';
-
-        if (window.document.body.clientHeight > window.innerHeight) {
-          try {
-            get('rb-frame').style.width = get('rb-frame').style.width + 32 + 'px';
-          } catch (errorB) {}
-        }
 
         storage('rbViewOn', true);
       }
