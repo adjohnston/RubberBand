@@ -20,7 +20,7 @@ There will come a time when you want to see how your page will look in smaller w
 
 ### Getting Started
 
-I am going to assume you've already downloaded either the normal or minified _(recommended)_ version of __RubberBand__, put it in your website's Javascript directory and referenced it in the footer of your HTML, if not, you should definitely do that now.
+I am going to assume you've already downloaded either the normal or minified _(recommended)_ version of __RubberBand__, put it in your website's Javascript directory and referenced it in the footer of your __HTML__, if not, you should definitely do that now.
 
 #### html5
 
@@ -38,9 +38,11 @@ Now you have __RubberBand__ showing, it's best to set some defaults.
 
 ##### HTML
 
-You won't to let your webpage know it should try and look good on a mobile device, you can do this using the following piece of HTML.
+You want to let your webpage know it should try and look good on a mobile device, you can do this using the following piece of __HTML__.
 
 `<meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />`
+
+It's a simple as that, with this line of code you tell the site to be as wide as whatever device it is being viewed on, you don't want the content to be zoomed. For more information I suggest reading the following article on the subject [An introduction to meta viewport and @viewport](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/ "read more about the viewport meta")
 
 ##### CSS
 
@@ -54,13 +56,63 @@ It is important to set these two initial values as all calculations will be driv
 
 __RubberBand__ comes with some options that you can set which can help during your development.
 
-+ showAlways : BOOLEAN (default: FALSE) - If set to TRUE, the tools will be shown always.
-+ hideColumns : BOOLEAN (default: FALSE) - If set to TRUE, columns will be hidden when the guide is on.
-+ hideBaseline : BOOLEAN (default: FALSE) - If set to TRUE, baselines will be hidden when the guide is on.
-+ mobileLandscape : NUMBER (default: 640) - Change this value to show a different width for the mobile landscape view.
-+ mobilePortrait : NUMBER (default: 480) - Change this value to show a different width for the mobile portrait view.
-+ tabletLandscape : NUMBER (default: 1024) - Change this value to show a different width for the tablet landscape view.
-+ tabletPortrait : NUMBER (default: 768) - Change this value to show a different width for the tablet portrait view.
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td>showAlways</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>If set to TRUE, the tools will be shown always.</td>
+  </tr>
+
+  <tr>
+    <td>hideColumns</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>If set to TRUE, columns will be hidden when the guide is on.</td>
+  </tr>
+
+  <tr>
+    <td>hideBaseline</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>If set to TRUE, baselines will be hidden when the guide is on.</td>
+  </tr>
+
+  <tr>
+    <td>mobileLandscape</td>
+    <td>number</td>
+    <td>640</td>
+    <td>Change this value to show a different width for the mobile landscape view.</td>
+  </tr>
+
+  <tr>
+    <td>mobilePortrait</td>
+    <td>number</td>
+    <td>480</td>
+    <td>Change this value to show a different width for the mobile portrait view.</td>
+  </tr>
+
+  <tr>
+    <td>tabletLandscape</td>
+    <td>number</td>
+    <td>1024</td>
+    <td>Change this value to show a different width for the tablet landscape view.</td>
+  </tr>
+
+  <tr>
+    <td>tabletPortrait</td>
+    <td>number</td>
+    <td>768</td>
+    <td>Change this value to show a different width for the tablet portrait view.</td>
+  </tr>
+</table>
 
 You can set these options by having a script tag in your footer, below the link to __RubberBand__. Here is an example of a setup which has the tools always showing, the baselines hidden and a mobile portrait view of 240 pixels.
 
