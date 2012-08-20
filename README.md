@@ -65,13 +65,13 @@ __RubberBand__ comes with some options that you can set which can help during yo
 You can set these options by having a script tag in your footer, below the link to __RubberBand__. Here is an example of a setup which has the tools always showing, the baselines hidden and a mobile portrait view of 240 pixels.
 
 `<script src="/my-javascript-dir/rubberband.min.js"></script>
-<script>
-  rubberband.options({
-    showAlways: true,
-    hideBaseline: true,
-    mobilePortrait: 240
-  });
-</script>`
+    <script>
+        rubberband.options({
+            showAlways: true,
+            hideBaseline: true,
+            mobilePortrait: 240
+        });
+    </script>`
 
 ### Using The Calculator
 
