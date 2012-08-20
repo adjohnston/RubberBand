@@ -1,5 +1,16 @@
 # RubberBand
 
+1.  A Responsive Web Design Tool
+  +   Responsive Columns &amp; Baslines
+  +   CSS Calculator
+  +   Viewport Switching
+2.  How To
+  +   Getting Started
+  +   Setting Some Defaults
+  +   Setting Custom Options
+  +   Using The Calculator
+3.  Feeding Back
+
 ## A Responsive Web Design Tool
 
 So, what is __RubberBand__? It's a light-weight, versatile and simple to use. Below I will outline a few features and then offer up a how to guide, where you can learn how to get started, how to use the tool and some of the options you can define to customize your experience.
@@ -16,6 +27,12 @@ RubberBand relies heavily on percentages and calculating ems instead of relying 
 
 There will come a time when you want to see how your page will look in smaller windows and on different devices, resizing a browser manually is annoying and you may just want to see your design quickly at a certain width without having to upload and view through a device. RubberBand can take care of that, meaning making changes is that little bit faster.
 
-### Informative
+## How To
 
-Want to know how wide your window is? The height? Default font-size and line-height? RubberBand provides this and everytime you resize the window so you always know what's going on.
+### Getting Started
+
+### Setting Some Defaults
+
+### Setting Custom Options
+
+### Using The Calculator
