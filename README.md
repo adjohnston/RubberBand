@@ -1,15 +1,11 @@
 # RubberBand
 
-1.  A Responsive Web Design Tool
-  +   Responsive Columns &amp; Baslines
-  +   CSS Calculator
-  +   Viewport Switching
-2.  How To
-  +   Getting Started
-  +   Setting Some Defaults
-  +   Setting Custom Options
-  +   Using The Calculator
-3.  Feeding Back
+1.  How To
+  1.1.  Getting Started
+  1.2.  Setting Some Defaults
+  1.3.  Setting Custom Options
+  1.4.  Using The Calculator
+2.  Feeding Back
 
 ## A Responsive Web Design Tool
 
