@@ -44,11 +44,11 @@ You want to let your webpage know it should try and look good on a mobile device
 
 `<meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />`
 
-It's a simple as that, with this line of code you tell the site to be as wide as whatever device it is being viewed on, you don't want the content to be zoomed. For more information I suggest reading the following article on the subject [An introduction to meta viewport and @viewport](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/ "read more about the viewport meta")
+It's a simple as that, with this line of code you tell the site to be as wide as whatever device it is being viewed on and you don't want the content to be zoomed. For more information I suggest reading the following article on the subject [An introduction to meta viewport and @viewport](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/ "read more about the viewport meta")
 
 ##### CSS
 
-For __CSS__ I highly recommend using a Reset stylesheet. Once you have added your reset stylesheet, in your own stylesheet, make sure to set a default font-size and line-height. The way I decide these values is to choose a size for an average paragraph. If I don't want the average paragraph text to ever be bigger than 14 pixels and the line-height to be 1.5 &times; the size of the text, I will set my body text to include the following:
+For __CSS__ I highly recommend using a Reset stylesheet, like this one for instance, [Eric Meyer's](http://meyerweb.com/eric/tools/css/reset/reset.css). Once you have added your reset stylesheet, in your own stylesheet, make sure to set a default font-size and line-height. The way I decide these values is to choose a size for an average paragraph. If I don't want the average paragraph text to ever be bigger than 14 pixels and the line-height to be 1.5 &times; the size of the text, I will set my body text to include the following:
 
 `body { font-size: 14px; line-height: 1.5em; }`
 
