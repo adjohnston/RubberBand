@@ -68,21 +68,21 @@ __RubberBand__ comes with some options that you can set which can help during yo
     <td>showAlways</td>
     <td>boolean</td>
     <td>false</td>
-    <td>If set to TRUE, the tools will be shown always.</td>
+    <td>If set to true, the tools will be shown always.</td>
   </tr>
 
   <tr>
     <td>hideColumns</td>
     <td>boolean</td>
     <td>false</td>
-    <td>If set to TRUE, columns will be hidden when the guide is on.</td>
+    <td>If set to true, columns will be hidden when the guide is on.</td>
   </tr>
 
   <tr>
     <td>hideBaseline</td>
     <td>boolean</td>
     <td>false</td>
-    <td>If set to TRUE, baselines will be hidden when the guide is on.</td>
+    <td>If set to true, baselines will be hidden when the guide is on.</td>
   </tr>
 
   <tr>
@@ -125,6 +125,7 @@ You can set these options by having a script tag in your footer, below the link 
         });
     </script>
 
-### Using The Calculator
-
 ## Feeding Back
+
+If you have any difficults using __RubberBand__, find a bug or have a suggestion on ways to improve the tool please email me here.
+[Adam Johnston](mailto:adam.johnston3679@gmail.com)
