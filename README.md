@@ -18,9 +18,9 @@ __RubberBand__ relies heavily on percentages and calculating ems instead of rely
 
 There will come a time when you want to see how your page will look in smaller windows, resizing a browser manually is annoying and you may just want to see your design quickly at a certain width without having to upload and view through an actual mobile device. __RubberBand__ can help with that, meaning making changes is that little bit faster.
 
-## How To
+## How To...
 
-### Getting Started
+### ...Get Started
 
 I am going to assume you've already downloaded either the normal or minified _(recommended)_ version of __RubberBand__, put it in your website's Javascript directory and referenced it in the footer of your __HTML__, if not, you should definitely do that now.
 
@@ -34,7 +34,7 @@ I am going to assume you've already downloaded either the normal or minified _(r
 
 You should hopefully see a small box in the top right corner of your webpage with a little down arrow icon. Hovering this will show __RubberBand__. If you can't see __RubberBand__, double check the path to the Javascript is correct.
 
-#### Setting Some Defaults
+#### ...Set Some Defaults
 
 Now you have __RubberBand__ showing, it's best to set some defaults.
 
@@ -44,7 +44,7 @@ You want to let your webpage know it should try and look good on a mobile device
 
 `<meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />`
 
-It's a simple as that, with this line of code you tell the site to be as wide as whatever device it is being viewed on and you don't want the content to be zoomed. For more information I suggest reading the following article on the subject [An introduction to meta viewport and @viewport](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/ "read more about the viewport meta")
+It's as simple as that, with this line of code you tell the site to be as wide as whatever device it is being viewed on and you don't want the content to be zoomed. For more information I suggest reading the following article on the subject [An introduction to meta viewport and @viewport](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/ "read more about the viewport meta")
 
 ##### CSS
 
@@ -54,7 +54,7 @@ For __CSS__ I highly recommend using a Reset stylesheet, like this one for insta
 
 It is important to set these two initial values as all calculations will be driven from the values set in the body. If you are happy with the defaults, be sure to set a line-height regardless to make sure all browsers are using the same line-height.
 
-### Setting Custom Options
+### ...Choose Options
 
 __RubberBand__ comes with some options that you can set which can help during your development.
 
@@ -126,6 +126,108 @@ You can set these options by having a script tag in your footer, below the link 
             mobilePortrait: 240
         });
     </script>
+
+## Using RubberBand
+
+### RubberBand Columns
+
+RubberBand's columns are set as % values and is based on 18 columns, which works out to be, 100 % 18 = 5.555555555555556%. The left and right most columns are set up as a natural border, some white-space that stops your content from ever being close up to the sides of the screen. The table below shows you how to calculate values between the columns based on which view you are in.
+
+#### Mobile
+
+<table>
+  <tr>
+    <th>col-1</th>
+    <th>col-2</th>
+    <th>col-3</th>
+    <th>col-4</th>
+  </tr>
+
+  <tr>
+    <td>25%</td>
+    <td>50%</td>
+    <td>75%</td>
+    <td>100%</td>
+  </tr>
+</table>
+
+#### Tablet
+
+<table>
+  <tr>
+    <th>col-1</th>
+    <th>col-2</th>
+    <th>col-3</th>
+    <th>col-4</th>
+    <th>col-5</th>
+    <th>col-6</th>
+    <th>col-7</th>
+    <th>col-8</th>
+  </tr>
+
+  <tr>
+    <td>12.5%</td>
+    <td>25%</td>
+    <td>37.5%</td>
+    <td>50%</td>
+    <td>62.5%</td>
+    <td>75%</td>
+    <td>87.5%</td>
+    <td>100%</td>
+  </tr>
+</table>
+
+#### Desktop
+
+<table>
+  <tr>
+    <th>col-1</th>
+    <th>col-2</th>
+    <th>col-3</th>
+    <th>col-4</th>
+    <th>col-5</th>
+    <th>col-6</th>
+    <th>col-7</th>
+    <th>col-8</th>
+    <th>col-9</th>
+    <th>col-10</th>
+    <th>col-11</th>
+    <th>col-12</th>
+    <th>col-13</th>
+    <th>col-14</th>
+    <th>col-15</th>
+    <th>col-16</th>
+  </tr>
+
+  <tr>
+    <td>6.25%</td>
+    <td>12.5%</td>
+    <td>18.75%</td>
+    <td>25%</td>
+    <td>31.25%</td>
+    <td>37.5%</td>
+    <td>43.75%</td>
+    <td>50%</td>
+    <td>56.25%</td>
+    <td>62.5%</td>
+    <td>68.75%</td>
+    <td>75%</td>
+    <td>81.25%</td>
+    <td>87.5%</td>
+    <td>93.75%</td>
+    <td>100%</td>
+  </tr>
+</table>
+
+### Using A Wrapper
+
+It's a good idea to use a wrapper for your whole site. You may want a 100% site design, but I'd still put in the wrapper. This is what I do.
+
+    <div id="wrapper">
+        [SITE CONTENT]
+    </div>
+
+By doing this it makes the process of positioning the content centrely, a whole lot easier. 
 
 ## Feeding Back
 
