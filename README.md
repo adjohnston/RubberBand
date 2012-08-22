@@ -131,7 +131,7 @@ You can set these options by having a script tag in your footer, below the link 
 
 ### RubberBand Columns
 
-RubberBand's columns are set as % values and is based on 18 columns, which works out to be, 100 % 18 = 5.555555555555556%. The left and right most columns are set up as a natural border, some white-space that stops your content from ever being close up to the sides of the screen. The table below shows you how to calculate values between the columns based on which view you are in.
+RubberBand's columns are set as % values and is based on 18 columns overall. The left and right most columns are set up as a natural border, some white-space that stops your content from ever being close up to the sides of the screen. That means the other 16 are available to use for content. The table below shows you how to calculate values between the columns based on which view you are in.
 
 #### Mobile
 
@@ -189,14 +189,6 @@ RubberBand's columns are set as % values and is based on 18 columns, which works
     <th>col-6</th>
     <th>col-7</th>
     <th>col-8</th>
-    <th>col-9</th>
-    <th>col-10</th>
-    <th>col-11</th>
-    <th>col-12</th>
-    <th>col-13</th>
-    <th>col-14</th>
-    <th>col-15</th>
-    <th>col-16</th>
   </tr>
 
   <tr>
@@ -208,6 +200,22 @@ RubberBand's columns are set as % values and is based on 18 columns, which works
     <td>37.5%</td>
     <td>43.75%</td>
     <td>50%</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>col-9</th>
+    <th>col-10</th>
+    <th>col-11</th>
+    <th>col-12</th>
+    <th>col-13</th>
+    <th>col-14</th>
+    <th>col-15</th>
+    <th>col-16</th>
+  </tr>
+
+  <tr>
     <td>56.25%</td>
     <td>62.5%</td>
     <td>68.75%</td>
@@ -227,7 +235,15 @@ It's a good idea to use a wrapper for your whole site. You may want a 100% site 
         [SITE CONTENT]
     </div>
 
-By doing this it makes the process of positioning the content centrely, a whole lot easier. 
+By doing this it makes the process of positioning the content centrely, a whole lot easier. For Mobile and Tablet devices I suggest setting the wrapper margin to the below.
+
+    /* Natural wrapper */
+    #wrapper { margin: 0 5.555555555555556% }
+
+For _Desktop_ you can use whatever you like, to work out the percentage remember to do the following. 100 % 18 &times; [number of columns either side] = [wrapper margin]%. So here is a quick example, you want three columns on the left and right, you would do the following. 100 % 18 &times; 3 = 16.66666666666667%. Your CSS should be:
+
+    /* 3 column wrapper */
+    #wrapper { margin: 0 16.66666666666667% }
 
 ## Feeding Back
 
