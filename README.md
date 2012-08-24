@@ -81,7 +81,7 @@ __RubberBand__ comes with some options that you can set which can help during yo
   </tr>
 
   <tr>
-    <td>hideBaseline</td>
+    <td>hideLines</td>
     <td>boolean</td>
     <td>false</td>
     <td>If true, baselines will be hidden when the guide is on.</td>
@@ -122,7 +122,7 @@ You can set these options by having a script tag in your footer, below the link 
     <script>
         rubberband.options({
             showAlways: true,
-            hideBaseline: true,
+            hideLines: true,
             mobilePortrait: 240
         });
     </script>
