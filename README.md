@@ -369,7 +369,7 @@ First thing I suggest doing is setting a global __P__ to have the default __CSS_
 This gives you a nice basis to work from when organising other elements around your content. When dealing with padding and a width defined on an element, you may notice that your content does not sit within the columns. if this occurs I suggest that, at the bottom of your stylesheet you have the following:
 
     [a whole bunch of elements] { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box; 
-        -ms-box-sizing: border-box; box-sizing: border-box; }
+                                  -ms-box-sizing: border-box; box-sizing: border-box; }
 
 This will allow the padding to be considered part of the overall width of the element so instead of an element being, for example, 25% + padding, it will be 25% including padding.
 
