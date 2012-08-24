@@ -245,7 +245,19 @@ For _Desktop_ you can use whatever you like, to work out the percentage remember
     /* 3 column wrapper */
     #wrapper { margin: 0 16.66666666666667% }
 
+### Laying Out Content
+
+First thing I suggest doing is setting a global __P__ to have the default CSS that the __RubberBand__ calculator gives you if you type in the base font-size. So if the base font-size is 16px, then type 16 into the calculator and copy the output CSS into your stylesheet.
+
+`p { margin: 1.5em 0; padding: 0 0.75em; font-size: 1em; line-height: 1.5em; }`
+
+This gives you a nice basis to work from when organise other elements around your content. When dealing with padding and a width defined, you may notice that your content does not sit within the columns. if this occurs I suggest that, at the bottom of your page you have the following:
+
+`[a whole bunch of elements] { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box; }`
+
+This will allow the padding to be considered part of the overall width of the element so instead of an element being, for example, 25% + padding, it will be 25% including padding.
+
 ## Feeding Back
 
 If you have any difficults using __RubberBand__, find a bug or have a suggestion on ways to improve the tool please email me here.
-[Adam Johnston](mailto:adam.johnston3679@gmail.com)
+[Adam Johnston](mailto:rubberband@adamjohnston.co.uk)
