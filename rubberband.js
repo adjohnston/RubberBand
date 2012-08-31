@@ -1,8 +1,8 @@
 /**
 * RubberBand
 * A responsive web design tool
-* ver - 0.1.5
-* 16/08/2012
+* ver - 0.1.6
+* 31/08/2012
 * Adam Johnston
 * rubberband.adamjohnston.co.uk
 */
@@ -281,7 +281,7 @@ var rubberband = (function (window, document) {
   return {
     options: setOptions,
     viewSettings: (function () {
-      var a;
+      var a, i, aTags = document.getElementsByTagName('a');
 
       try {
         a = localStorage.getItem('rbViewport');
@@ -298,6 +298,13 @@ var rubberband = (function (window, document) {
         get('rb-calculator').style.visibility = 'hidden';
         get('rb-font-size-line-height').style.top = '-56px';
         get('rb-width-height').style.top = '-56px';
+
+        for (i in aTags) {
+          if (aTags.hasOwnProperty(i)) {
+            aTags[i].style.position = 'relative';
+            aTags[i].style.zIndex = '-1';
+          }
+        }
 
         storage('rbViewOn', true);
       }
