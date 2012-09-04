@@ -1,8 +1,8 @@
 /**
 * RubberBand
 * A responsive web design tool
-* ver - 0.1.6
-* 31/08/2012
+* ver - 0.1.7
+* 04/09/2012
 * Adam Johnston
 * rubberband.adamjohnston.co.uk
 */
@@ -81,7 +81,7 @@ var rubberband = (function (window, document) {
       get('rb-width').innerHTML = rbValue.docWidth + 'px';
       get('rb-height').innerHTML = rbValue.winHeight + 'px';
       get('rb-font-size').innerHTML = rbValue.fontSize + 'px';
-      get('rb-line-height').innerHTML = pxToEm(rbValue.lineHeight) + 'em';
+      get('rb-line-height').innerHTML = String(pxToEm(rbValue.lineHeight)).substr(0, 7) + 'em';
     },
 
     /**
@@ -295,14 +295,13 @@ var rubberband = (function (window, document) {
 
       if (window.name === 'rb-frame') {
         get('rb-view-toggle').style.visibility = 'hidden';
-        get('rb-calculator').style.visibility = 'hidden';
+        get('rb-font-size-line-height').style.top = '-56px';
         get('rb-font-size-line-height').style.top = '-56px';
         get('rb-width-height').style.top = '-56px';
 
         for (i in aTags) {
           if (aTags.hasOwnProperty(i)) {
-            aTags[i].style.position = 'relative';
-            aTags[i].style.zIndex = '-1';
+            aTags[i].href = '#';
           }
         }
 
