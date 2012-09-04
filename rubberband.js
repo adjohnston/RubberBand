@@ -296,7 +296,7 @@ var rubberband = (function (window, document) {
       if (window.name === 'rb-frame') {
         get('rb-view-toggle').style.visibility = 'hidden';
         get('rb-font-size-line-height').style.top = '-56px';
-        get('rb-font-size-line-height').style.top = '-56px';
+        get('rb-calculator').style.top = '-56px';
         get('rb-width-height').style.top = '-56px';
 
         for (i in aTags) {
