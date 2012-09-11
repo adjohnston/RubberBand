@@ -1,8 +1,8 @@
 /**
 * RubberBand
 * A responsive web design tool
-* ver - 0.1.7
-* 04/09/2012
+* ver - 0.1.8
+* 11/09/2012
 * Adam Johnston
 * rubberband.adamjohnston.co.uk
 */
@@ -60,7 +60,7 @@ var rubberband = (function (window, document) {
     },
 
     addCSS = function () {
-      document.head.insertAdjacentHTML('beforeend', ' <link rel="stylesheet" data-rel="RubberBand" href="http://adamjohnston.co.uk/rubberband/stylesheets/rubberband.min.css?v=1" media="screen" /><style data-rel="RubberBand">#rb-col-left div{right:-' + pxToEm(rbValue.lineHeight) / 2 + 'em}#rb-col-right div{left:-' + pxToEm(rbValue.lineHeight) / 2 + 'em}.rb-col{margin-left:-' + pxToEm(rbValue.lineHeight) / 2 + 'em}.rb-col div{border-width:0 ' + pxToEm(rbValue.lineHeight) / 2 + 'em}</style>');
+      document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend', ' <link rel="stylesheet" data-rel="RubberBand" href="http://adamjohnston.co.uk/rubberband/stylesheets/rubberband.min.css?v=1" media="screen" /><style data-rel="RubberBand">#rb-col-left div{right:-' + pxToEm(rbValue.lineHeight) / 2 + 'em}#rb-col-right div{left:-' + pxToEm(rbValue.lineHeight) / 2 + 'em}.rb-col{margin-left:-' + pxToEm(rbValue.lineHeight) / 2 + 'em}.rb-col div{border-width:0 ' + pxToEm(rbValue.lineHeight) / 2 + 'em}</style>');
     },
 
     addHTML = function () {
@@ -206,7 +206,30 @@ var rubberband = (function (window, document) {
     },
 
     rbValues = function () {
-      rbValue = { winHeight: window.innerHeight, docWidth: document.body.clientWidth, docHeight: document.body.clientHeight, fontSize: parseInt(window.getComputedStyle(document.body).fontSize, 10), lineHeight: parseInt(window.getComputedStyle(document.body).lineHeight, 10) };
+      var fontSize = function() {
+            var fontSize;
+
+            try { 
+              fontSize = window.getComputedStyle(document.body).fontSize;
+            } catch (e) { 
+              fontSize = document.body.currentStyle.fontSize;
+            }
+
+            return parseInt(fontSize, 10);
+          },
+          lineHeight = function () {
+            var lineHeight;
+
+            try {
+              lineHeight = window.getComputedStyle(document.body).lineHeight;
+            } catch (e) {
+              lineHeight = document.body.currentStyle.lineHeight;
+            }
+
+            return parseInt(lineHeight, 10);
+          };
+
+      rbValue = { winHeight: window.innerHeight, docWidth: document.body.clientWidth, docHeight: document.body.clientHeight, fontSize: fontSize(), lineHeight: lineHeight() };
     },
 
     /**
@@ -219,14 +242,16 @@ var rubberband = (function (window, document) {
         viewStyling = function () {
           var a = get('rb-frame');
 
-          (function (callback) {
-            a.hidden = true;
-            callback();
-          }(function () {
-            a.style.width = scrollBarAdjust(viewportSize) + 'px';
-            a.style.left = (((rbValue.docWidth - parseInt(viewportSize, 10)) / 2) / rbValue.docWidth) * 100 + '%';
-            a.hidden = false;
-          }));
+          if (a) {
+            (function (callback) {
+              a.hidden = true;
+              callback();
+            }(function () {
+              a.style.width = scrollBarAdjust(viewportSize) + 'px';
+              a.style.left = (((rbValue.docWidth - parseInt(viewportSize, 10)) / 2) / rbValue.docWidth) * 100 + '%';
+              a.hidden = false;
+            }));
+          }
         };
 
       if (showView) {
@@ -280,7 +305,7 @@ var rubberband = (function (window, document) {
 
   return {
     options: setOptions,
-    viewSettings: (function () {
+    init: (function () {
       var a, i, aTags = document.getElementsByTagName('a');
 
       try {
@@ -308,7 +333,7 @@ var rubberband = (function (window, document) {
         storage('rbViewOn', true);
       }
 
-      return null;
+      return true;
     }())
   };
 
