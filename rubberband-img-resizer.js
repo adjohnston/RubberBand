@@ -1,8 +1,8 @@
 /*
 * RubberBand Image Re-Sizer
 * Makes your images nicely fit with RubberBand
-* ver - 0.1.0
-* 11/09/2012
+* ver - 0.1.3
+* 18/09/2012
 * Adam Johnston
 * rubberband.adamjohnston.co.uk
 */
@@ -17,34 +17,42 @@ var rbImgResizer = (function (w, d) {
         return d.getElementsByClassName('rb-img-resizer');
       } catch (e) {}
     },
-    fontSize = function () {
+    fontSize = function (elem) {
       var fontSize;
 
       try {
-        fontSize = w.getComputedStyle(d.body).fontSize;
+        fontSize = w.getComputedStyle(elem).fontSize;
       } catch (e) {
-        fontSize = d.body.currentStyle.fontSize;
+        fontSize = elem.currentStyle.fontSize;
       }
 
       return parseInt(fontSize, 10);
     },
-    lineHeight = function () {
+    lineHeight = function (elem) {
       var lineHeight;
 
       try {
-        lineHeight = w.getComputedStyle(d.body).lineHeight;
+        lineHeight = w.getComputedStyle(elem).lineHeight;
       } catch (e) {
-        lineHeight = d.body.currentStyle.lineHeight;
+        lineHeight = elem.currentStyle.lineHeight;
       }
 
-      return parseInt(lineHeight, 10) / fontSize();
+      lineHeight = parseInt(lineHeight, 10) / fontSize(elem);
+      lineHeight = String(lineHeight).substr(0, 7);
+
+      return parseFloat(lineHeight, 10);
+    },
+    resize = function () {
+      for (i in imgs()) {
+        if (imgs().hasOwnProperty(i)) {
+          var img = imgs()[i],
+            imgLineHeight = lineHeight(img.parentNode);
+          img.style.maxHeight = Math.floor(img.height / fontSize(img.parentNode) / imgLineHeight) * imgLineHeight + 'em';
+          img.style.display = 'block';
+        }
+      }
     };
 
-  for (i in imgs()) {
-    if (imgs().hasOwnProperty(i)) {
-      imgs()[i].style.maxHeight = Math.floor(imgs()[i].height / fontSize() / lineHeight()) * lineHeight() + 'em';
-      imgs()[i].style.display = 'block';
-    }
-  }
+  w.onload = resize();
 
 }(window, document));
