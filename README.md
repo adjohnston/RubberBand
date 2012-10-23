@@ -2,6 +2,8 @@
 
 I really love responsive web design, I think it's great and I think you should love it too, but it isn't the simplest thing to achieve. I took inspiration from the [Golden Grid System](http://goldengridsystem.com/ "see the GGS for yourself"). I was amazed by it's simplicity and ingenuity, but it did some things I didn't quite agree with, so I set about making my own, then designed some tools to help speed up the process. The result is __RubberBand__.
 
+To see a demo of __RubberBand__ working, take a [look here](http://rubberband-demo.adamjohnston.co.uk "rubberband demo").
+
 ## A Responsive Web Development Tool
 
 So, what is __RubberBand__? Well, it's a light-weight, versatile and simple to use tool to help you develop responsive websites. Below are a few features:
