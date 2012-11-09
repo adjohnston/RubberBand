@@ -76,56 +76,49 @@ __RubberBand__ comes with some options that you can set which can help during yo
   </tr>
 
   <tr>
-    <td>hideColumns</td>
+    <td>showColumns</td>
     <td>boolean</td>
-    <td>false</td>
-    <td>If true, columns will be hidden when the guide is on.</td>
+    <td>true</td>
+    <td>If false, columns will be hidden when the guide is on.</td>
   </tr>
 
   <tr>
-    <td>hideLines</td>
+    <td>showLines</td>
     <td>boolean</td>
-    <td>false</td>
-    <td>If true, baselines will be hidden when the guide is on.</td>
+    <td>true</td>
+    <td>If false, baselines will be hidden when the guide is on.</td>
   </tr>
 
   <tr>
-    <td>mobileLandscape</td>
+    <td>desktop</td>
     <td>number</td>
-    <td>640</td>
-    <td>Change this value to show a different width for the mobile landscape view.</td>
+    <td>992</td>
+    <td>Change this value to show a different width for the desktop view.</td>
   </tr>
 
   <tr>
-    <td>mobilePortrait</td>
+    <td>tablet</td>
     <td>number</td>
-    <td>480</td>
-    <td>Change this value to show a different width for the mobile portrait view.</td>
+    <td>600</td>
+    <td>Change this value to show a different width for the tablet view.</td>
   </tr>
 
   <tr>
-    <td>tabletLandscape</td>
+    <td>mobile</td>
     <td>number</td>
-    <td>1024</td>
-    <td>Change this value to show a different width for the tablet landscape view.</td>
-  </tr>
-
-  <tr>
-    <td>tabletPortrait</td>
-    <td>number</td>
-    <td>768</td>
-    <td>Change this value to show a different width for the tablet portrait view.</td>
+    <td>240</td>
+    <td>Change this value to show a different width for the mobile view.</td>
   </tr>
 </table>
 
-You can set these options by having a script tag in your footer, below the link to __RubberBand__. Here is an example of a setup which has the tools always showing, the baselines hidden and a _Mobile_ portrait view of 240px.
+You can set these options by having a script tag in your footer, below the link to __RubberBand__. Here is an example of a setup which has the tools always showing, the baselines hidden and a _Mobile_ view of 480px.
 
     <script src="/my-javascript-dir/rubberband.min.js"></script>
     <script>
         rubberband.options({
             showAlways: true,
-            hideLines: true,
-            mobilePortrait: 240
+            ShowLines: false,
+            mobile: 480
         });
     </script>
 
@@ -133,7 +126,21 @@ You can set these options by having a script tag in your footer, below the link 
 
 ### RubberBand Columns
 
-__RubberBand's__ columns are set as % values and is based on 18 columns overall. The left and right most columns are set up as a natural border, some white-space that stops your content from ever being too close up to the sides of the device screen. That means the other 16 columns are available to use for content. The table below shows you how to calculate values between the columns based on which view you're in.
+__RubberBand's__ columns are set as % values and is based on 16 columns overall. The table below shows you how to calculate values between the columns based on which view you're in.
+
+#### Small Mobile
+
+<table>
+  <tr>
+    <th>col-1</th>
+    <th>col-2</th>
+  </tr>
+
+  <tr>
+    <td>50%</td>
+    <td>100%</td>
+  </tr>
+</table>
 
 #### Mobile
 
@@ -355,12 +362,12 @@ It's a good idea to use a wrapper for your whole site. You may want a 100% width
 By doing this it makes the process of positioning the content centrely is a whole lot easier. For _Mobile_ and _Tablet_ devices I suggest setting the wrapper margin to the following:
 
     /* Natural wrapper */
-    #wrapper { margin: 0 5.555555555555556% }
+    #wrapper { margin: 0 }
 
-For _Desktop_ you can use whatever you like, to work out the percentage remember to do the following. 100 % 18 &times; [number of columns either side] = [wrapper margin]%. So here is a quick example, to have three columns on the left and right, you would do the following. 100 % 18 &times; 3 = 16.66666666666667%. Your __CSS__ would be:
+For _Desktop_ you can use whatever you like, to work out the percentage remember to do the following. 100 % 16 &times; [number of columns either side] = [wrapper margin]%. So here is a quick example, to have three columns on the left and right, you would do the following. 100 % 16 &times; 3 = 18.75%. Your __CSS__ would be:
 
     /* 3 column wrapper */
-    #wrapper { margin: 0 16.66666666666667% }
+    #wrapper { margin: 0 18.75% }
 
 ### Laying Out Content
 
