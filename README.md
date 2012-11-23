@@ -2,8 +2,6 @@
 
 I really love responsive web design, I think it's great and I think you should love it too, but it isn't the simplest thing to achieve. I took inspiration from the [Golden Grid System](http://goldengridsystem.com/ "see the GGS for yourself"). I was amazed by it's simplicity and ingenuity, but it did some things I didn't quite agree with, so I set about making my own, then designed some tools to help speed up the process. The result is __RubberBand__.
 
-To see a demo of __RubberBand__ working, take a [look here](http://rubberband-demo.adamjohnston.co.uk "rubberband demo").
-
 ## A Responsive Web Development Tool
 
 So, what is __RubberBand__? Well, it's a light-weight, versatile and simple to use tool to help you develop responsive websites. Below are a few features:
@@ -44,15 +42,15 @@ Now you have __RubberBand__ showing, it's best to set some defaults.
 
 You want to let your webpage know it should try and look good on a _Mobile_ device, you can do this using the following piece of __HTML__:
 
-`<meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi" />`
+`<meta name="viewport" content="width=device-width, initial-scale=1" />`
 
 It's as simple as that. With this line of code you tell the site to be as wide as whatever device it is being viewed on and you don't want the content to be zoomed. For more information I suggest reading the following article on the subject [An introduction to meta viewport and @viewport](http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/ "read more about the viewport meta")
 
 ##### CSS
 
-For __CSS__ I highly recommend using a reset stylesheet, like this one for instance, [Eric Meyer's](http://meyerweb.com/eric/tools/css/reset/reset.css). Once you have added your reset stylesheet, in your own stylesheet, make sure to set a default font-size in px and line-height in em. The way I decide these values is to choose a size for an average paragraph. If I don't want the average paragraph text to ever be bigger than 14px and the line-height to be 1.5em, I will set my body text to include the following:
+For __CSS__ I highly recommend using a reset stylesheet, like this one for instance, [Eric Meyer's](http://meyerweb.com/eric/tools/css/reset/reset.css). Once you have added your reset stylesheet, in your own stylesheet, make sure to set a default font-size and line-height in px. The way I decide these values is to choose a size for an average piece of text. If I don't want the average paragraph text to ever be bigger than 16px and the line-height to be 1.5em, I will set my body text to include the following:
 
-`body { font-size: 14px; line-height: 1.5em; }`
+`body { font-size: 14px; line-height: 24px; }`
 
 It is important to set these two initial values as all calculations will be driven from the values set in the body. If you are happy with the defaults, be sure to set a line-height regardless to make sure all browsers are using the same line-height as opposed to 'normal'.
 
