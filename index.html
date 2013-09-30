@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <title>RubberBand</title>
+
+        <style>
+            *[class^="rb-"],
+            *[id^="rb-"] {
+                -webkit-box-sizing: border-box;
+                   -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+            }
+
+            #rb-lines {
+                top: 0;
+                left: 0
+            }
+
+            .rb-one-whole {
+                width: 100%;
+            }
+
+            .rb-pos-abs {
+                position: absolute;
+            }
+
+            .rb-pos-fxd {
+                position: fixed;
+            }
+
+            .rb-col {
+                height: 100%;
+                border: solid rgba(255, 0, 0, .2);
+                outline: 2px dashed white;
+                border-top-width: 0 !important;
+                border-bottom-width: 0 !important;
+                top: 0;
+            }
+
+            .rb-line {
+                border-bottom: 1px solid rgba(0, 0, 0, .2);
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="rb-tools">
+            
+        </div>
+
+        <div id="rb-cols" class="rb-one-whole rb-pos-fxd"></div>
+
+        <div id="rb-lines" class="rb-one-whole rb-pos-fxd"></div>
+
+
+        
+        <script src="rubberband.new.js"></script>
+    </body>
+</html>
