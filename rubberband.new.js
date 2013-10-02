@@ -8,6 +8,7 @@ var RubberBand = (function (window, document, undefined) {
 
     //  private
     var i,
+        htmlStr,
         defaults = {
             showAlways: false,
             showColumns: true,
@@ -16,7 +17,7 @@ var RubberBand = (function (window, document, undefined) {
             gutterWidth: 24,
             columnCount: 12,
             viewportWidths: {
-                mobile: 240,
+                mobile: 360,
                 phablet: 480,
                 tablet: 600,
                 laptop: 992,
@@ -24,8 +25,17 @@ var RubberBand = (function (window, document, undefined) {
             }
         },
 
-        getColumnPercentage = function (mutiplier) {
-            var pcent = 100 / defaults.columnCount * mutiplier;
+        //  get column percentage
+        //  =====================
+        //  returns the percentage of the columns based on the number of columns.
+        //  ---------------------------------------------------------------------
+        //  @param {integer} the number of columns
+        //  @param {integer} the column number
+        //  @return {string} the percentage of a column
+        //  -------------------------------------------
+        getColumnPercentage = function (numOfCols, colNum) {
+            var pcent = 100 / numOfCols * colNum;
+            numOfCols = numOfCols || defaults.columnCount;
 
             return pcent.toFixed(5) + '%';
         },
@@ -33,30 +43,55 @@ var RubberBand = (function (window, document, undefined) {
         //  create columns
         //  ==============
         //  creates the columns needed based on the options the user sets or the defaults.
-        //  ------------------------------------------------------------------------------
-        createCols = function () {
-            for (i = 0; i < defaults.columnCount; i++) {
-                document.getElementById('rb-cols').insertAdjacentHTML('beforeend', '<div class="rb-col rb-pos-fixed" style="width:' + 
-                    getColumnPercentage(1) + ';border-width: ' + defaults.gutterWidth + 'px;left:' + 
-                    getColumnPercentage(i) + ';"></div>');
+        //  it also takes into account the size of the viewport, which is partly set and partly
+        //  based on the user settings.
+        //  ---------------------------
+        //  @param {integer} the number of columns
+        //  --------------------------------------
+        createCols = function (numOfCols) {
+            var clientWidth = document.documentElement.clientWidth;
+            numOfCols = numOfCols || defaults.columnCount;
+            htmlStr = [];
+            i = 0;
+
+            if (clientWidth <= defaults.viewportWidths.mobile) {
+                numOfCols = 2;
+            } else if (clientWidth > defaults.viewportWidths.mobile && clientWidth <= defaults.viewportWidths.tablet) {
+                numOfCols = 4;
+            } else if (clientWidth > defaults.viewportWidths.tablet && clientWidth <= defaults.viewportWidths.desktop) {
+                numOfCols = defaults.columnCount / 2;
             }
+
+            for (i; i < numOfCols; i++) {
+                htmlStr[i] = '<div class="rb-col rb-pos-abs" style="width:' + getColumnPercentage(numOfCols, 1) + ';border-width: ' +
+                    defaults.gutterWidth + 'px;left:' + getColumnPercentage(numOfCols, i) + ';"></div>';
+            }
+
+            document.getElementById('rb-cols').innerHTML = htmlStr.join('');
         },
 
+        //  create lines
+        //  ============
         createLines = function () {
             var numOfLines = Math.floor(document.documentElement.clientHeight / defaults.lineHeight);
+            htmlStr = [];
+            i = 0;
 
-            for (i = 0; i <= numOfLines; i++) {
-                document.getElementById('rb-lines').insertAdjacentHTML('beforeend', '<div class="rb-line rb-one-whole" style="height:' + 
-                    defaults.lineHeight + 'px"></div>');
+            for (i; i < numOfLines; i++) {
+                htmlStr[i] = '<div class="rb-line rb-one-whole" style="height:' + defaults.lineHeight + 'px"></div>';
             }
+
+            document.getElementById('rb-lines').innerHTML = htmlStr.join('');
         };
 
-    addEventListener('load', function () {
-        return [createCols(), createLines()];
+    window.addEventListener('load', function () {
+        createCols();
+        createLines();
     }, false);
 
-    addEventListener('resize', function () {
-        return createLines();
+    window.addEventListener('resize', function () {
+        createCols();
+        createLines();
     }, false);
 
     //  public
@@ -64,4 +99,4 @@ var RubberBand = (function (window, document, undefined) {
         defaults: defaults
     }
 
-} (window, document));
+}(window, document));

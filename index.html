@@ -4,16 +4,21 @@
         <title>RubberBand</title>
 
         <style>
-            *[class^="rb-"],
-            *[id^="rb-"] {
+            [class^="rb-"],
+            [id^="rb-"] {
                 -webkit-box-sizing: border-box;
                    -moz-box-sizing: border-box;
                         box-sizing: border-box;
             }
 
+            #rb-cols,
             #rb-lines {
                 top: 0;
                 left: 0
+            }
+
+            #rb-cols {
+                height: 100%;
             }
 
             .rb-one-whole {
@@ -51,7 +56,7 @@
 
         <div id="rb-cols" class="rb-one-whole rb-pos-fxd"></div>
 
-        <div id="rb-lines" class="rb-one-whole rb-pos-fxd"></div>
+        <div id="rb-lines" class="rb-one-whole rb-pos-abs"></div>
 
 
         
