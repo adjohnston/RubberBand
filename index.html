@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-gb">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>RubberBand Demo</title>
+
+        <style>
+            html {
+                font-size:   20px;
+                line-height: 1.6;
+            }
+
+            body {
+                width: 50%;
+                margin: 0 auto;
+
+                background-color: white;
+
+                font-family: "helvetica neue", helvetica, arial, sans-serif;
+            }
+
+            h1 {
+                font-size: 2em; 
+                line-height: 1.6em;
+                text-align: center;
+            }
+
+            h1, p { 
+                margin: 0 0 32px; 
+                padding-left:  16px;
+                padding-right: 16px;
+            }
+
+            p {
+                font-family: "times new roman", times, serif;
+            }
+
+            @media screen and (max-width: 61.9375em) {
+                body {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Just a Demo Page</h1>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum elit tortor, eu rutrum felis porta et. Sed tristique tempor lorem, sit amet interdum purus dignissim vel. Donec ultrices nisl nec metus sagittis fermentum. Nam vitae mauris vel orci congue volutpat quis vitae augue. Quisque tempus purus sapien, vel placerat ligula sodales sed. Cras et tortor ipsum. Proin a tortor et nisi ultrices iaculis id a augue. Mauris sollicitudin pharetra odio, vitae feugiat velit facilisis et. Nullam sed nisl nec lectus mollis faucibus id ut velit. Duis venenatis neque id sapien commodo, egestas malesuada dolor auctor. Sed congue, nulla vel sodales mattis, magna augue varius justo, bibendum tempor tortor est ac nunc.</p>
+
+        <p>Nunc quis dictum elit. Praesent eget pretium lectus, id commodo tellus. Etiam odio metus, adipiscing vitae ligula ac, pharetra gravida risus. Cras placerat quis elit a consequat. Phasellus tempus felis ut elit imperdiet, quis condimentum magna ultricies. Nunc congue tellus ac nibh eleifend, ac consectetur lorem aliquam. Donec lorem tellus, suscipit sit amet diam ut, rutrum convallis velit. Mauris vitae orci in sem blandit rutrum. Sed rutrum aliquet molestie. Mauris tincidunt ut nibh a ultricies. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras convallis risus urna, tempus venenatis arcu convallis et. Nam feugiat lobortis accumsan. Aliquam ullamcorper, nisi ut hendrerit elementum, purus orci vestibulum felis, sit amet facilisis massa felis at eros. Aenean condimentum enim nec enim convallis aliquam.</p>
+
+        <p>Donec quam ligula, fermentum ac ipsum ac, laoreet aliquet arcu. Nunc fermentum tincidunt libero, a accumsan odio vehicula et. Nulla nulla neque, elementum nec facilisis vel, molestie et orci. Etiam molestie congue leo a sollicitudin. Suspendisse cursus tempus elit, ac lacinia eros suscipit sit amet. Integer dignissim arcu quis quam condimentum blandit. Pellentesque eu nisi eget turpis pulvinar euismod. Fusce egestas est arcu, a interdum lectus mollis eget. Quisque egestas aliquam nisi, nec interdum est vestibulum elementum. Fusce eget egestas arcu. Proin venenatis pharetra massa vel porta. Nullam turpis sapien, pulvinar nec lorem sit amet, hendrerit gravida risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <script src="rubberband.min.js"></script>
+        <script>
+            (function () {
+                RubberBand.options({
+                    mobile: 360
+                });
+            } ());
+        </script>
+    </body>
+</html>
